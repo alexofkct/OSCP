@@ -19,7 +19,7 @@ To spawn a stable interactive shell:
 
 ```bash
 python3 -c 'import pty; pty.spawn("/bin/bash")'
-````
+```
 
 To spawn a reverse shell from the victim machine:
 
@@ -37,4 +37,4 @@ To use arrow keys and tab completion with Netcat:
 
 ```bash
 rlwrap nc -lvnp <port>
-```
+````
