@@ -11,7 +11,8 @@
 - `dirb`, `gobuster` – Directory brute-forcing tools  
 - `ffuf` – Fast web fuzzer for finding subdomains or directories  
 - `grep -rni "String" *` – Recursively search for a string in a directory (case-insensitive)  
-- `enum4linux` – SMB enumeration tool (sometimes very handy)  
+- `enum4linux` – SMB enumeration tool (sometimes very handy)
+````
 
 ### Shell Spawning
 
@@ -37,4 +38,4 @@ To use arrow keys and tab completion with Netcat:
 
 ```bash
 rlwrap nc -lvnp <port>
-````
+```
