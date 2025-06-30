@@ -3,26 +3,24 @@
 ### Unattended Windows Installations (Location of creds sometimes)
 
 ```
-
 C:\Unattend.xml
 C:\Windows\Panther\Unattend.xml
 C:\Windows\Panther\Unattend\Unattend.xml
 C:\Windows\system32\sysprep.inf
 C:\Windows\system32\sysprep\sysprep.xml
-
-````
+```
 
 ### PowerShell History
 
 ```cmd
 type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
-````
+```
 
 ### Saved Windows Credentials
 
 ```cmd
 cmdkey /list
-runas /savecred /user.:admin cmd.exe
+runas /savecred /user:admin cmd.exe
 ```
 
 ### IIS Configuration (Inside web.config, creds may be found)
@@ -96,3 +94,5 @@ PS C:\> $cred = new-object -typename System.Management.Automation.PSCredential -
 PS C:\> Invoke-Command -ScriptBlock { whoami } -Credential $cred -Computer localhost
 sniper\chris
 ```
+
+---
